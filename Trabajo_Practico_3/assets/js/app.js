@@ -8,7 +8,7 @@ function taskManager() {
             addTask(nuevaTarea);
             break;
         case '2':
-           listaTarea();
+            listaTarea();
             break;
         case '3':
             listaTarea();
@@ -27,20 +27,20 @@ function taskManager() {
         default:
             alert("Acción no válida, por favor intente de nuevo.");
     }
-    taskManager(); 
+    administradorTarea(); 
 }
 
-function validateTaskName(Tarea) {
+function validarnombreTarea(Tarea) {
     const regex = /^\S.*\S$|^\S$/;
     return regex.test(tarea);
 }
 
 function nuevaTarea(Tarea) {
-    if (!validateTaskName(Tarea)) {
+    if (!validarnombreTarea(Tarea)) {
         alert("Error: El nombre de la tarea no puede estar vacío ni contener espacios al principio o al final.");
         return;
     }
-    tasks.push(task.trim());
+    Tarea.push(Tarea.trim());
     alert(`Tarea "${Tarea}" agregada.`);
 }
 
@@ -62,9 +62,9 @@ function editarTarea(index, nuevaTarea) {
         return;
     }
     if (index >= 0 && index < Tarea.length) {
-        const oldTask = tasks[index];
+        const Tareaanterior = Tarea[index];
         tarea[index] = nuevaTarea.trim();
-        alert(`Tarea ${index + 1} cambiada de "${oldTask}" a "${nuevaTarea}".`);
+        alert(`Tarea ${index + 1} cambiada de "${Tareaanterior}" a "${nuevaTarea}".`);
     } else {
         alert("Índice de tarea inválido.");
     }
@@ -79,4 +79,4 @@ function eliminarTarea(index) {
     }
 }
 
-taskManager();
+administradorTarea();
